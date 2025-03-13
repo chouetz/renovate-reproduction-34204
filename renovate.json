@@ -15,17 +15,8 @@
       "matchStrings": [
         "(?<currentValue>[0-9]+.[0-9]+(-rc[0-9]+)?)"
       ],
-      "depNameTemplate": "protoc",
-      "versioningTemplate": "loose",
-      "datasourceTemplate": "custom.protoc"
+      "depNameTemplate": "protocolbuffers/protobuf",
+      "datasourceTemplate": "github-releases"
     }
-  ],
-  "customDatasources": {
-    "protoc": {
-      "defaultRegistryUrlTemplate": "https://api.github.com/repos/protocolbuffers/protobuf/releases",
-      "transformTemplates": [
-        "{\"releases\": $map($.[tag_name,published_at], function($v) { {\"version\": $v[0], \"releaseTimestamp\": $v[1] } }) }"
-      ]
-    }
-  }
+  ]
 }
